@@ -159,8 +159,14 @@ function processContains(item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
  */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+function processDuplicateFree(list, callback) {
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+  const newVal = list.filter((element, i) => {
+    if (list.indexOf(element) === i) {
+      return element
+    }
+  })
+  return callback(newVal)
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -258,12 +264,12 @@ function tallyUpDonations(runners) {
  */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0
+  let count = 0
 
-  function counter(count) {
-    return count.push((count += 1))
+  return function counter() {
+    return count++
   }
-  return counter(count)
+
   // BROKEN CODE ENDS
 }
 
@@ -287,8 +293,15 @@ function counterMaker() {
  * counter() // should return 0
  * etc
  */
-function counterMakerWithLimit(/* CODE HERE */) {
+function counterMakerWithLimit(maxVal) {
   /* CODE HERE */
+  let count = -1
+  return function() {
+    if (count === maxVal) {
+      count = -1
+    }
+    return ++count
+  }
 }
 
 /////////////// END OF CHALLENGE ///////////////
