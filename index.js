@@ -295,13 +295,24 @@ function counterMaker() {
  */
 function counterMakerWithLimit(maxVal) {
   /* CODE HERE */
-  let count = -1
+
+  let count = 0
   return function() {
-    if (count === maxVal) {
-      count = -1
+    if (count < maxVal) {
+      return count++
+    } else {
+      count = 0
+      return maxVal
     }
-    return ++count
   }
+
+  // let count = -1
+  // return function() {
+  //   if (count === maxVal) {
+  //     count = -1
+  //   }
+  //   return ++count
+  // }
 }
 
 /////////////// END OF CHALLENGE ///////////////
