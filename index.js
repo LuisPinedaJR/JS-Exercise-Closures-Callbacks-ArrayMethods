@@ -305,7 +305,6 @@ function counterMakerWithLimit(maxVal) {
       return maxVal
     }
   }
-
   // let count = -1
   // return function() {
   //   if (count === maxVal) {
